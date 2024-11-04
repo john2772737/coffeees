@@ -8,7 +8,7 @@ part 'registration_state.dart';
 
 class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
   RegistrationBloc() : super(RegistrationInitial()) {
-    on<RegisterButton>(_onRegisterButtonPressed);
+    on<RegisterButton>(_onRegisterButtonPressed);//er
   }
   Future<void> _onRegisterButtonPressed(RegisterButton event, Emitter<RegistrationState> emit) async {
     emit(RegisterLoading()); // Emit loading state
