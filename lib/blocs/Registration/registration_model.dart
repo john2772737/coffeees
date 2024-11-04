@@ -1,9 +1,9 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+
 import 'dart:convert';
 
-class UserModels {
-  final int id;
-  final String uid;
+class RegistrationModel {
+  final int? id;
+  final String? uid;
   final String email;
   final String firstName;
   final String lastName;
@@ -11,9 +11,9 @@ class UserModels {
   final String birthday;
   final String? phoneNumber;
   final String? profileImage;
-  UserModels({
-    required this.id,
-    required this.uid,
+  RegistrationModel({
+    this.id,
+    this.uid,
     required this.email,
     required this.firstName,
     required this.lastName,
@@ -22,10 +22,8 @@ class UserModels {
     this.phoneNumber,
     this.profileImage,
   });
- 
 
-
-  UserModels copyWith({
+  RegistrationModel copyWith({
     int? id,
     String? uid,
     String? email,
@@ -36,7 +34,7 @@ class UserModels {
     String? phoneNumber,
     String? profileImage,
   }) {
-    return UserModels(
+    return RegistrationModel(
       id: id ?? this.id,
       uid: uid ?? this.uid,
       email: email ?? this.email,
@@ -63,10 +61,10 @@ class UserModels {
     };
   }
 
-  factory UserModels.fromMap(Map<String, dynamic> map) {
-    return UserModels(
-      id: map['id'] as int,
-      uid: map['uid'] as String,
+  factory RegistrationModel.fromMap(Map<String, dynamic> map) {
+    return RegistrationModel(
+      id: map['id'] != null ? map['id'] as int : null,
+      uid: map['uid'] != null ? map['uid'] as String : null,
       email: map['email'] as String,
       firstName: map['firstName'] as String,
       lastName: map['lastName'] as String,
@@ -79,15 +77,15 @@ class UserModels {
 
   String toJson() => json.encode(toMap());
 
-  factory UserModels.fromJson(String source) => UserModels.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory RegistrationModel.fromJson(String source) => RegistrationModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
-    return 'UserModels(id: $id, uid: $uid, email: $email, firstName: $firstName, lastName: $lastName, password: $password, birthday: $birthday, phoneNumber: $phoneNumber, profileImage: $profileImage)';
+    return 'RegistrationModel(id: $id, uid: $uid, email: $email, firstName: $firstName, lastName: $lastName, password: $password, birthday: $birthday, phoneNumber: $phoneNumber, profileImage: $profileImage)';
   }
 
   @override
-  bool operator ==(covariant UserModels other) {
+  bool operator ==(covariant RegistrationModel other) {
     if (identical(this, other)) return true;
   
     return 
